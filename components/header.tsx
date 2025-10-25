@@ -1,49 +1,69 @@
-"use client"
+"use client";
 
-import { useState } from "react"
-import { Menu, X } from "lucide-react"
-import { Button } from "@/components/ui/button"
+import { useState } from "react";
+import { Menu, X } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import Link from "next/link";
 
 export function Header() {
-  const [isOpen, setIsOpen] = useState(false)
+  const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-50 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 border-b border-border">
-      <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex items-center justify-between">
-        <div className="flex items-center gap-2">
-          <div className="w-8 h-8 bg-gradient-to-br from-primary to-accent rounded-lg flex items-center justify-center">
-            <span className="text-primary-foreground font-bold text-sm">SA</span>
+    <header className="max-w-4xl rounded-2xl mx-auto sticky top-4 z-20 border-b bg-gray-500 border-border">
+      <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex items-center justify-between z-50">
+        <div className="flex items-center z-50 gap-2">
+          <div className="w-8 h-8 bg-linear-to-br from-primary to-accent rounded-lg flex items-center justify-center">
+            <span className="text-primary-foreground font-bold text-sm">
+              SA
+            </span>
           </div>
-          <span className="font-bold text-lg text-foreground">ScoreAlt</span>
+          <span className="font-bold text-lg text-foreground-accent">
+            ScoreAlt
+          </span>
         </div>
 
         {/* Desktop Navigation */}
-        <div className="hidden md:flex items-center gap-8">
-          <a href="#features" className="text-sm text-muted-foreground hover:text-foreground transition">
+        <div className="hidden md:flex items-center font-semibold text-white! gap-8">
+          <Link
+            href="#features"
+            className="text-sm  hover:text-blue-300 transition-colors duration-200"
+          >
             Features
-          </a>
-          <a href="#how-it-works" className="text-sm text-muted-foreground hover:text-foreground transition">
+          </Link>
+          <Link
+            href="#how-it-works"
+            className="text-sm  hover:text-blue-300 transition-colors duration-200"
+          >
             How It Works
-          </a>
-          <a href="#benefits" className="text-sm text-muted-foreground hover:text-foreground transition">
+          </Link>
+          <Link
+            href="#benefits"
+            className="text-sm  hover:text-blue-300 transition-colors duration-200"
+          >
             Benefits
-          </a>
-          <a href="#testimonials" className="text-sm text-muted-foreground hover:text-foreground transition">
+          </Link>
+          <Link
+            href="#testimonials"
+            className="text-sm  hover:text-blue-300 transition-colors duration-200"
+          >
             Testimonials
-          </a>
+          </Link>
         </div>
 
         <div className="hidden md:flex items-center gap-4">
-          <Button variant="outline" size="sm">
-            Sign In
-          </Button>
-          <Button size="sm" className="bg-primary hover:bg-primary/90">
-            Get Started
+          <Button
+            size="sm"
+            className="bg-primary hover:bg-primary/90"
+          >
+            Join Waitlist
           </Button>
         </div>
 
         {/* Mobile Menu Button */}
-        <button className="md:hidden" onClick={() => setIsOpen(!isOpen)}>
+        <button
+          className="md:hidden"
+          onClick={() => setIsOpen(!isOpen)}
+        >
           {isOpen ? <X size={24} /> : <Menu size={24} />}
         </button>
       </nav>
@@ -52,29 +72,41 @@ export function Header() {
       {isOpen && (
         <div className="md:hidden border-t border-border bg-card">
           <div className="px-4 py-4 space-y-4">
-            <a href="#features" className="block text-sm text-muted-foreground hover:text-foreground">
+            <Link
+              href="#features"
+              className="block text-sm text-muted-foreground hover:text-blue-300 transition-colors duration-200"
+            >
               Features
-            </a>
-            <a href="#how-it-works" className="block text-sm text-muted-foreground hover:text-foreground">
+            </Link>
+            <Link
+              href="#how-it-works"
+              className="block text-sm text-muted-foreground hover:text-blue-300 transition-colors duration-200"
+            >
               How It Works
-            </a>
-            <a href="#benefits" className="block text-sm text-muted-foreground hover:text-foreground">
+            </Link>
+            <Link
+              href="#benefits"
+              className="block text-sm text-muted-foreground hover:text-blue-300 transition-colors duration-200"
+            >
               Benefits
-            </a>
-            <a href="#testimonials" className="block text-sm text-muted-foreground hover:text-foreground">
+            </Link>
+            <Link
+              href="#testimonials"
+              className="block text-sm text-muted-foreground hover:text-blue-300 transition-colors duration-200"
+            >
               Testimonials
-            </a>
+            </Link>
             <div className="flex gap-2 pt-4">
-              <Button variant="outline" size="sm" className="flex-1 bg-transparent">
-                Sign In
-              </Button>
-              <Button size="sm" className="flex-1 bg-primary hover:bg-primary/90">
-                Get Started
+              <Button
+                size="sm"
+                className="flex-1 bg-primary hover:bg-primary/90"
+              >
+                Join Waitlist
               </Button>
             </div>
           </div>
         </div>
       )}
     </header>
-  )
+  );
 }

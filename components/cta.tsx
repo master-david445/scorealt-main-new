@@ -14,13 +14,10 @@ export function CTA() {
           </p>
         </div>
 
-        <div className="flex flex-col sm:flex-row gap-4 justify-center">
-          <Button size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground">
-            Start Your Free Trial
+        <div className="flex flex-col sm:flex-row gap-4 justify-center animate-bounce">
+          <Button size="lg" className="bg-primary text-xl hover:bg-primary/90 text-primary-foreground">
+            Join the Waitlist !
             <ArrowRight className="ml-2" size={18} />
-          </Button>
-          <Button size="lg" variant="outline">
-            Schedule a Demo
           </Button>
         </div>
 
