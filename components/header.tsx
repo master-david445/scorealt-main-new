@@ -9,7 +9,7 @@ export function Header() {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <header className="max-w-4xl rounded-2xl mx-auto sticky top-4 z-20 border-b bg-gray-500 border-border">
+    <header className="max-w-4xl rounded-2xl mx-auto sticky top-4 z-20 border-b backdrop-blur-md bg-background/95 border-border">
       <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex items-center justify-between z-50">
         <div className="flex items-center z-50 gap-2">
           <div className="w-8 h-8 bg-linear-to-br from-primary to-accent rounded-lg flex items-center justify-center">
@@ -23,7 +23,7 @@ export function Header() {
         </div>
 
         {/* Desktop Navigation */}
-        <div className="hidden md:flex items-center font-semibold text-white! gap-8">
+        <div className="hidden md:flex items-center font-semibold text-foreground gap-8">
           <Link
             href="#features"
             className="text-sm  hover:text-blue-300 transition-colors duration-200"

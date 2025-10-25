@@ -6,7 +6,7 @@ import { ArrowRight, Zap } from "lucide-react";
 
 export function Hero() {
   return (
-    <section className="relative overflow-hidden py-20 md:py-32 px-4 z-50 sm:px-6 lg:px-8">
+    <section className="relative overflow-hidden py-20 md:py-32 px-4 sm:px-6 lg:px-8">
       {/* Background gradient elements */}
       <div className="absolute inset-0 -z-10">
         <div className="absolute top-20 right-0 w-96 h-96 bg-accent/10 rounded-full blur-3xl"></div>
