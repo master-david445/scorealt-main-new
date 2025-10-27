@@ -40,16 +40,16 @@ export function Testimonials() {
 
         <div className="grid md:grid-cols-3 gap-6">
           {testimonials.map((testimonial, index) => (
-            <Card key={index} className="p-6 border-border/50 hover:shadow-lg transition-shadow">
+            <Card key={index} className={`p-6 bg-gradient-to-br from-primary to-accent border-primary/20 hover:shadow-lg hover:transform hover:-translate-y-1 transition-all duration-300 animate-slide-in-up`} style={{ animationDelay: `${index * 0.2}s` }}>
               <div className="flex gap-1 mb-4">
                 {Array.from({ length: testimonial.rating }).map((_, i) => (
-                  <Star key={i} className="w-4 h-4 fill-accent text-accent" />
+                  <Star key={i} className={`w-4 h-4 text-primary-foreground animate-star-fill`} style={{ animationDelay: `${index * 0.2 + i * 0.1}s` }} />
                 ))}
               </div>
-              <p className="text-muted-foreground mb-6 leading-relaxed">{testimonial.content}</p>
+              <p className="text-primary-foreground/80 mb-6 leading-relaxed">{testimonial.content}</p>
               <div>
-                <p className="font-semibold text-foreground">{testimonial.name}</p>
-                <p className="text-sm text-muted-foreground">{testimonial.role}</p>
+                <p className="font-semibold text-primary-foreground">{testimonial.name}</p>
+                <p className="text-sm text-primary-foreground/70">{testimonial.role}</p>
               </div>
             </Card>
           ))}

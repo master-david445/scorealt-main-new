@@ -40,15 +40,15 @@ export function HowItWorks() {
         <div className="grid md:grid-cols-4 gap-6">
           {steps.map((step, index) => (
             <div key={index} className="relative">
-              <Card className="p-6 h-full border-border/50 hover:border-accent/30 transition-colors">
-                <div className="text-4xl font-bold text-primary/20 mb-4">{step.number}</div>
-                <h3 className="text-lg font-semibold text-foreground mb-2">{step.title}</h3>
-                <p className="text-muted-foreground text-sm leading-relaxed">{step.description}</p>
+              <Card className={`p-6 h-full bg-gradient-to-br from-primary to-accent border-primary/20 hover:border-primary/50 hover:transform hover:-translate-y-2 transition-all duration-300 animate-slide-in-left`} style={{ animationDelay: `${index * 0.2}s` }}>
+                <div className="text-4xl font-bold text-primary-foreground/60 mb-4">{step.number}</div>
+                <h3 className="text-lg font-semibold text-primary-foreground mb-2">{step.title}</h3>
+                <p className="text-primary-foreground/80 text-sm leading-relaxed">{step.description}</p>
               </Card>
 
               {index < steps.length - 1 && (
                 <div className="hidden md:flex absolute -right-3 top-1/2 -translate-y-1/2 z-10">
-                  <ArrowRight className="text-primary/30 w-6 h-6" />
+                  <ArrowRight className="text-primary/30 w-6 h-6 animate-pulse" style={{ animationDelay: `${index * 0.2 + 0.5}s` }} />
                 </div>
               )}
             </div>

@@ -1,12 +1,46 @@
 "use client";
 
+import { useState, useEffect } from "react";
 import { TypeAnimation } from "react-type-animation";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Zap } from "lucide-react";
 
 export function Hero() {
+  const [scrollY, setScrollY] = useState(0);
+
+  useEffect(() => {
+    const handleScroll = () => setScrollY(window.scrollY);
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   return (
-    <section className="relative overflow-hidden py-20 md:py-32 px-4 sm:px-6 lg:px-8">
+    <section className="relative overflow-hidden py-20 md:py-32 px-4 sm:px-6 lg:px-8 animate-fade-in-up">
+      {/* Parallax Background Images */}
+      <div className="absolute inset-0 -z-20">
+        <div
+          className="absolute inset-0 bg-cover bg-center opacity-20 parallax-layer"
+          style={{
+            backgroundImage: "url('/placeholder.jpg')",
+            transform: `translateY(${scrollY * 0.5}px)`,
+          }}
+        />
+        <div
+          className="absolute inset-0 bg-cover bg-center opacity-15 parallax-layer"
+          style={{
+            backgroundImage: "url('/placeholder.svg')",
+            transform: `translateY(${scrollY * 0.3}px)`,
+          }}
+        />
+        <div
+          className="absolute inset-0 bg-cover bg-center opacity-10 parallax-layer"
+          style={{
+            backgroundImage: "url('/placeholder-logo.png')",
+            transform: `translateY(${scrollY * 0.2}px)`,
+          }}
+        />
+      </div>
+
       {/* Background gradient elements */}
       <div className="absolute inset-0 -z-10">
         <div className="absolute top-20 right-0 w-96 h-96 bg-accent/10 rounded-full blur-3xl"></div>
@@ -37,7 +71,7 @@ export function Hero() {
                 wrapper="span"
                 speed={35}
                 style={{ display: "inline-block" }}
-                className="text-sm font-medium text-accent"
+                className="text-sm font-medium text-accent-foreground"
                 repeat={Infinity}
               />
             </div>
@@ -57,7 +91,7 @@ export function Hero() {
               </p>
             </div>
 
-            <div className="flex flex-col sm:flex-row gap-4 animate-bounce">
+            <div className="flex flex-col sm:flex-row gap-4">
               <Button
                 size="lg"
                 className="bg-primary hover:bg-primary/90 text-primary-foreground"
@@ -117,9 +151,9 @@ export function Hero() {
                   ></div>
 
                   {/* Inner circle */}
-                  <div className="absolute inset-16 rounded-full bg-gradient-to-br from-primary to-accent flex items-center justify-center shadow-2xl">
+                  <div className="absolute inset-16 rounded-full bg-gradient-to-br from-primary to-accent flex items-center justify-center shadow-2xl hover:shadow-primary/50 transition-shadow duration-300">
                     <div className="text-center">
-                      <div className="text-3xl font-bold text-primary-foreground">
+                      <div className="text-3xl font-bold text-primary-foreground hover:text-primary-foreground/90 transition-colors duration-300">
                         AI
                       </div>
                       <div className="text-xs text-primary-foreground/80">
